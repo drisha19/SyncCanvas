@@ -26,7 +26,9 @@ const roomUsers = new Map<
 >();
 
 const roomCanvasState = new Map<string, string>();
-
+app.get("/", (_req, res) => {
+  res.status(200).send("SyncCanvas server is running");
+});
 io.on("connection", (socket) => {
 
   console.log(`User connected: ${socket.id}`);
@@ -145,8 +147,8 @@ if (savedCanvas) {
 
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = Number(process.env.PORT) || 3001;
 
-httpServer.listen(PORT, () => {
-  console.log(`SyncCanvas server running on http://localhost:${PORT}`);
+httpServer.listen(PORT, "0.0.0.0", () => {
+  console.log(`SyncCanvas server running on port ${PORT}`);
 });
