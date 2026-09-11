@@ -1057,67 +1057,76 @@ const exportCanvas = () => {
     );
   };
 
-  // ==================================================
-  // JOIN SCREEN
-  // ==================================================
+// ==================================================
+// JOIN SCREEN
+// ==================================================
 
-  if (!joinedRoom) {
-    return (
-      <div className="join-screen">
-        <div className="join-card">
-          <h1>
-            SyncCanvas
-          </h1>
+if (!joinedRoom) {
+  return (
+    <div className="join-screen">
 
-          <p>
-            Join a shared drawing room
-          </p>
-
-          <input
-            type="text"
-            placeholder="Enter your name"
-            value={userName}
-            onChange={(event) =>
-              setUserName(
-                event.target.value
-              )
-            }
-          />
-
-          <input
-            type="text"
-            placeholder="Enter room ID"
-            value={roomId}
-            onChange={(event) =>
-              setRoomId(
-                event.target.value.toUpperCase()
-              )
-            }
-          />
-
-          <button
-            onClick={
-              joinRoom
-            }
-          >
-            Join Room
-          </button>
-
-          <div className="or-text">
-            OR
-          </div>
-
-          <button
-            onClick={
-              createRoom
-            }
-          >
-            Create New Room
-          </button>
-        </div>
+      <div className="floating-shapes" aria-hidden="true">
+        <span className="shape shape-circle"></span>
+        <span className="shape shape-square"></span>
+        <span className="shape shape-line"></span>
+        <span className="shape shape-dot shape-dot-one"></span>
+        <span className="shape shape-dot shape-dot-two"></span>
       </div>
-    );
-  }
+
+      <div className="join-card">
+        <h1>
+          SyncCanvas
+        </h1>
+
+        <p>
+          Join a shared drawing room
+        </p>
+
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={userName}
+          onChange={(event) =>
+            setUserName(
+              event.target.value
+            )
+          }
+        />
+
+        <input
+          type="text"
+          placeholder="Enter room ID"
+          value={roomId}
+          onChange={(event) =>
+            setRoomId(
+              event.target.value.toUpperCase()
+            )
+          }
+        />
+
+        <button
+          onClick={
+            joinRoom
+          }
+        >
+          Join Room
+        </button>
+
+        <div className="or-text">
+          OR
+        </div>
+
+        <button
+          onClick={
+            createRoom
+          }
+        >
+          Create New Room
+        </button>
+      </div>
+    </div>
+  );
+}
 
   // ==================================================
   // MAIN UI
